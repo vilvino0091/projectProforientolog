@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Результат</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="card">
+    <h2>Подходящие профессии:</h2>
+    <ul>
+      {% for p in professions %}
+        <li><a href="{{ url_for('career', prof_name=p) }}" class="prof-link">{{ p }}</a></li>
+      {% endfor %}
+    </ul>
+      <h2>Рекомендуемые предметы ЕГЭ:</h2>
+      <ul>
+        {% for s in ege_subjects %}
+          <li>{{ s }}</li>
+        {% endfor %}
+      </ul>
+
+      <a class="btn" href="{{ url_for('index') }}">Пройти ещё раз</a>
+  </div>
+</body>
+</html>
